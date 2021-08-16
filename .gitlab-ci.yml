@@ -1,0 +1,20 @@
+stages:
+  - build
+  - release
+
+build:
+  stage: build
+  before_script:
+    - export VERSION=$(grep -m1 '<bm-lib.version>' pom.xml | grep -oP  '(?<=>).*(?=<)')
+  script:
+    - mvn clean package
+    - mvn deploy:deploy-file -DgroupId=it.almawave.ps.batch.manager -DartifactId=bm-lib -Dversion=$VERSION
+      -DgeneratePom=false -Dpackaging=jar -DrepositoryId=banana-nexus
+      -Durl=http://10.121.172.156/nexus/content/repositories/releases -DpomFile=pom.xml -Dfile=target/bm-lib-$VERSION.jar
+
+
+release:
+  stage: release
+  only:
+    - master
+  script: mvn clean package -U
