@@ -15,7 +15,7 @@
 
     <name>bm-lib</name>
     <description>Batch Manager Library</description>
-    <url>http://almawve.it</url>
+    <url>https://github.com/AlmaWave/bm-lib</url>
 
     <licenses>
         <license>
@@ -24,6 +24,26 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
+
+    <developers>
+        <developer>
+            <id>alotronto</id>
+            <name>Andrea Rocco Lotronto</name>
+            <email>a.lotronto@almawave.it</email>
+            <organization>Almawave S.p.A</organization>
+            <organizationUrl>https://www.almawave.it</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <developerConnection>scm:git:ssh://github.com/AlmaWave/bm-lib.git</developerConnection>
+        <connection>${project.scm.developerConnection}</connection>
+        <url>${project.url}</url>
+    </scm>
 
     <properties>
         <java.version>11</java.version>
